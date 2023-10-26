@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="./main.js" type="module"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <!-- Style Swipper -->
+    <style>
+      .swiper {
+        width: 1016px;
+        padding-bottom: 60px;
+      }
+      .swiper-wrapper {
+        align-items: center;
+        justify-content: start;
+      }
+      .swiper-slide {
+        border-radius: 24px;
+        width: 312px;
+        height: 420px;
+        padding: 28px;
+        background-color: #fff;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        filter: blur(3px);
+      }
+      .swiper-slide-next h5 {
+        font-size: 28px;
+        line-height: 36px;
+        font-weight: 700;
+      }
+      .swiper-slide-next h6 {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 500;
+        color: #3f85ec;
+      }
+      .swiper-slide-next p {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 400;
+      }
+      .swiper-slide-next {
+        width: 390px;
+        height: 530px;
+        padding: 28px;
+        position: relative;
+        filter: none;
+      }
+      .swiper-slide .img-profile {
+        width: 335px;
+        margin: auto;
+      }
+      @media only screen and (max-width: 768px) {
+        .swiper {
+          width: 100%;
+          gap: 0px;
+        }
+        .swiper-wrapper {
+          width: 100%;
+          align-items: start;
+          margin-bottom: 20px;
+          gap: 0;
+        }
+        .swiper-slide {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+          padding: 8px;
+          filter: none;
+          height: 100%;
+        }
+        .swiper-slide-next {
+          filter: none;
+          height: 100%;
+        }
+        .swiper-slide-active {
+          width: 100%;
+        }
+
+        .swiper-slide h5 {
+          font-size: 28px;
+          line-height: 36px;
+          font-weight: 700;
+        }
+        .swiper-slide h6 {
+          font-size: 20px;
+          line-height: 28px;
+          font-weight: 500;
+          color: #3f85ec;
+        }
+        .swiper-slide p {
+          font-size: 20px;
+          line-height: 28px;
+          font-weight: 400;
+        }
+        .swiper-slide .img-profile {
+          width: 100%;
+          margin: auto;
+        }
+      }
+      @media only screen and (max-width: 1280px) {
+        .swiper {
+          width: 100%;
+          gap: 0px;
+        }
+        .swiper-wrapper {
+          width: 100%;
+          margin-bottom: 20px;
+          gap: 0;
+        }
+        .swiper-slide {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+          filter: none;
+          height: 100%;
+        }
+        .swiper-slide-next {
+          filter: none;
+          height: 100%;
+        }
+        .swiper-slide-active {
+          width: 100%;
+        }
+
+        .swiper-slide h5 {
+          font-size: 28px;
+          line-height: 36px;
+          font-weight: 700;
+        }
+        .swiper-slide h6 {
+          font-size: 20px;
+          line-height: 28px;
+          font-weight: 500;
+          color: #3f85ec;
+        }
+        .swiper-slide p {
+          font-size: 20px;
+          line-height: 28px;
+          font-weight: 400;
+        }
+        .swiper-slide .img-profile {
+          width: 100%;
+          margin: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-[Poppins]">
+    <!-- Navabar -->
+    <nav class="z-[99] bg-white" id="navbar">
+      <div class="container mx-auto">
+        <div class="w-[90%] md:w-[100%] lg:w-[1016px] mx-auto py-2 md:py-4">
+          <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a class="flex items-center" href="/">
+              <img loading="lazy" class="h-6 sm:h-7" src="images/logo/favicon.svg" alt="Eduwork Logo" />
+            </a>
+            <div class="flex gap-3 md:order-2">
+              <button
+                type="button"
+                class="text-[#187CFF] font-[500] hover:text-white bg-[#F6FCFF] text-[14px] py-[9.5px] px-[20px] rounded-[12px] border border-[#187CFF] hidden md:block hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm text-center mr-3 md:mr-0"
+              >
+                Sign In
+              </button>
+              <button
+                type="button"
+                class="text-white font-[500] bg-[#187CFF] text-[14px] py-[9.5px] px-[20px] rounded-[12px] hidden md:block hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm text-center mr-3 md:mr-0"
+              >
+                Register
+              </button>
+              <button
+                data-collapse-toggle="navbar-sticky"
+                type="button"
+                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-sticky"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+              <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row gap-[10px] md:gap-[40px] md:mt-0 md:text-sm md:font-semibold md:border-0 md:bg-transparent">
+                <button id="dropdownNavbarLink" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent">
+                  Home
+                </button>
+
+                <li>
+                  <div
+                    x-data="{
+                              open: false,
+                              toggle() {
+                                    if (this.open) {
+                                       return this.close()
+                                    }
+                  
+                                    this.$refs.button.focus()
+                  
+                                    this.open = true
+                              },
+                              close(focusAfter) {
+                                    if (! this.open) return
+                  
+                                    this.open = false
+                  
+                                    focusAfter && focusAfter.focus()
+                              }
+                           }"
+                    x-on:keydown.escape.prevent.stop="close($refs.button)"
+                    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                    x-id="['dropdown-button']"
+                    class="relative text-sm font-semibold"
+                  >
+                    <button
+                      x-ref="button"
+                      x-on:click="toggle()"
+                      :aria-expanded="open"
+                      :aria-controls="$id('dropdown-button')"
+                      type="button"
+                      class="text-base font-[400] md:text-sm md:font-[500] flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                    >
+                      Kelas
+                      <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                    <div
+                      x-ref="panel"
+                      x-show="open"
+                      x-transition.origin.top.left
+                      x-on:click.outside="close($refs.button)"
+                      :id="$id('dropdown-button')"
+                      style="display: none"
+                      class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-none md:shadow-s2"
+                    >
+                      <a href="#" class="flex text-base font-[400] md:text-sm md:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Regular</a>
+                      <a href="#" class="flex text-base font-[400] md:text-sm md:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Kelas</a>
+                    </div>
+                  </div>
+                </li>
+
+                <button id="dropdownNavbarLink" class="text-primary flex items-center justify-between w-full py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent">
+                  Become a Mentor
+                </button>
+                <button type="button" class="text-white rounded-xl block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Sign In</button>
+                <button type="button" class="text-white rounded-xl block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+                  Register
+                </button>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Hero -->
+    <div class="absolute top-[700px] w-full h-[200px] z-10">
+      <div class="wave"></div>
+    </div>
+    <div class="lg:hidden block absolute top-0 w-full h-[730px] overflow-hidden">
+      <div class="lg:hidden block absolute left-0 w-[200%] md:w-full h-[740px] hero-gradasi z-[9]"></div>
+    </div>
+    <div class="xl:bg-center 2xl:bg-[url('./images/lp-mentor/bg-hero.png')] bg-white sm:bg-[url('./images/lp-mentor/bg-hero-responsive.png')] bg-no-repeat bg-[top_right_-20rem] md:bg-[top_right_-10rem] 2xl:bg-contain bg-cover">
+      <div class="container mx-auto m-0">
+        <section id="Hero" class="md:mt-20 mt-14 w-full h-[800px]">
+          <div class="flex md:flex-row w-[90%] md:w-full mx-auto h-fit lg:w-[1016px]">
+            <div class="w-fit h-[680px] pt-[80px]">
+              <div class="relative flex flex-col w-full md:w-[90%] z-30">
+                <h1 class="text-4xl font-[700] w-full md:w-[480px] md:text-[40px] md:leading-[48px] mx-auto md:mx-0 text-left">
+                  Ingin
+                  <span class="text-[#187CFF]">Waktu Luang</span> Kamu <span class="text-[#187CFF]">Bernilai Belasan Juta Per Bulan</span>?
+                </h1>
+                <div class="flex-col w-full md:w-[418px] mt-[12px] md:mt-[12px]">
+                  <p class="font-[500] text-xl">Ayo ikut bergabung bersama kami</p>
+                  <p class="text-[#187CFF] text-xl">#gerakan-praktisi-mengajar</p>
+                </div>
+                <div class="flex justify-start gap-6 my-6 md:flex-nowrap flex-wrap">
+                  <div class="pr-6 border-r-2 border-r-slate-300">
+                    <h4 class="font-[700] text-[#187CFF] text-[28px]">1691+</h4>
+                    <p class="font-[500] text-sm">Member bergabung</p>
+                  </div>
+                  <div class="pr-6 border-r-2 border-r-slate-300">
+                    <h4 class="font-[700] text-[#187CFF] text-[28px]">59+</h4>
+                    <p class="font-[500] text-sm">Mentor Aktif</p>
+                  </div>
+                  <div>
+                    <h4 class="font-[700] text-[#187CFF] text-[28px]">136Juta+</h4>
+                    <p class="font-[500] text-sm">Profit Sharing</p>
+                  </div>
+                </div>
+
+                <form action="#" class="shadow-input h-[72px] flex bg-white p-2 rounded-3xl w-full sm:max-w-[480px] gap-2">
+                  <div class="p-4 w-full flex gap-2 items-center">
+                    <img loading="lazy" src="images/lp-mentor-icon/mail.svg" width="24px" alt="mail-icon" />
+                    <input type="email" class="w-full outline-none border-none focus:ring-0" placeholder="Enter your email" />
+                  </div>
+                  <button class="hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 flex items-center px-8 py-0 bg-[#187CFF] font-[600] text-white rounded-2xl" type="submit">Daftar</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="relative w-full h-[730px] hidden lg:block z-20"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- End Hero -->
+
+    <!-- PARTNER -->
+    <div class="relative container mx-auto">
+      <section class="absolute left-1/2 transform -translate-x-1/2 top-[-100px] z-20 w-[90%] mx-auto lg:w-[1016px] h-fit md:h-[70px] pt-5 lg:mb-[74px]">
+        <div class="z-10 flex flex-col lg:flex-row">
+          <div>
+            <h4 class="w-full lg:w-[240px] h-[70px] text-center text-[24px] font-medium leading-[28.56px] mr-[37px] md:mr-[20px]"><span class="text-[36px] font-[600] text-[#187cff]">Our 100+ </span>Business Partner</h4>
+          </div>
+          <div class="slider w-full overflow-hidden">
+            <div class="slide-track flex gap-[20px] md:gap-[61.05px] items-center h-full">
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/1.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/2.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/3.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/4.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/5.png" />
+              </div>
+            </div>
+
+            <div class="slide-track flex gap-[20px] md:gap-[61.05px] ml-[110px] md:ml-[65.05px] items-center">
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/1.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/2.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/3.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/4.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/5.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of Partner -->
+
+    <!-- Industri -->
+    <div class="bg-white pt-20 sm:pb-20 pb-10">
+      <div class="container mx-auto">
+        <section class="flex flex-col items-center w-[90%] h-fit mx-auto lg:w-[1016px]">
+          <h4 class="text-center text-3xl md:text-4xl font-[600] text-[#303030]">Pilih Industri Kamu Saat Ini</h4>
+          <p class="mt-4 text-center text-xl font-[400] text-[#676767]">Saatnya untuk lampaui batasan. Bantu para member komunitas menyusun dan mencapai target karir mereka.</p>
+          <div class="my-10 flex flex-col gap-y-6 relative">
+            <div class="bg-white-gradient bottom-[-16px] bg-bottom w-full h-full absolute"></div>
+            <div class="flex justify-center gap-6 flex-wrap">
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-green-200">
+                  <img src="images/lp-mentor-icon/data-science.svg" alt="data-science-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Data Science</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">280 mentors</p>
+                </div>
+              </div>
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-purple-200">
+                  <img src="images/lp-mentor-icon/engineer.svg" alt="engineer-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Engineering</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">2019 mentors</p>
+                </div>
+              </div>
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-purple-200">
+                  <img src="images/lp-mentor-icon/engineer.svg" alt="Developer-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Developer</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">2019 mentors</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-orange-200">
+                  <img class="pt-1" src="images/lp-mentor-icon/marketing.svg" alt="marketing-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Marketing</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">1594 mentors</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-blue-200">
+                  <img src="images/lp-mentor-icon/human-res.svg" alt="human-resource-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Human Resource</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">4279 mentors</p>
+                </div>
+              </div>
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-blue-200">
+                  <img src="images/lp-mentor-icon/human-res.svg" alt="machine-learning-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Machine Learning</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">4279 mentors</p>
+                </div>
+              </div>
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-purple-200">
+                  <img src="images/lp-mentor-icon/graphic-design.svg" alt="graphic-design" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Graphic design</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">11157 mentors</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-purple-200">
+                  <img src="images/lp-mentor-icon/graphic-design.svg" alt="ui-ux-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">UI/UX Design</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">11157 mentors</p>
+                </div>
+              </div>
+              <div class="flex gap-4 py-5 sm:w-auto w-full px-6 bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-cyan-200">
+                  <img src="images/lp-mentor-icon/copy-writing.svg" alt="machine-learning-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Copywriting</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">519 mentors</p>
+                </div>
+              </div>
+              <div class="sm:flex gap-4 py-5 sm:w-auto w-full px-6 hidden bg-white shadow-box-custom rounded-2xl">
+                <div class="p-[10px] rounded-full bg-cyan-200">
+                  <img src="images/lp-mentor-icon/product-res.svg" alt="product-res-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Product Research</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">3092 mentors</p>
+                </div>
+              </div>
+
+              <div class="sm:flex gap-4 py-5 sm:w-auto w-full px-6 hidden bg-white rounded-2xl">
+                <div class="p-[10px] rounded-full bg-green-200">
+                  <img src="images/lp-mentor-icon/data-science.svg" alt="data-science-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Data Science</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">280 mentors</p>
+                </div>
+              </div>
+
+              <div class="sm:flex gap-4 py-5 sm:w-auto w-full px-6 hidden bg-white rounded-2xl">
+                <div class="p-[10px] rounded-full bg-orange-200">
+                  <img class="pt-1" src="images/lp-mentor-icon/marketing.svg" alt="marketing-icon" />
+                </div>
+                <div>
+                  <h6 class="text-md sm:text-xl font-[700]">Marketing</h6>
+                  <p class="text-sm font-[400] text-[#6B7B8A]">1594 mentors</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full sm:w-[192px] text-center text-base font-[600] px-8 py-4 rounded-xl bg-[#187CFF] text-white"> Jelajah Industri </a>
+        </section>
+      </div>
+    </div>
+    <!-- End of industri -->
+
+    <!-- WFH -->
+    <div class="pt-10 sm:pt-20 pb-32 sm:pb-20">
+      <div class="container mx-auto">
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <h4 class="text-center text-3xl md:text-4xl font-[600] text-[#303030]">Bertemu Semuanya Walaupun di Rumah Aja</h4>
+          <p class="mt-4 text-center text-xl font-[400] text-[#676767]">Telah menjangkau 40 kota di Indonesia, kami terhubung dengan partner praktisi dari ragam geografis; Perbanyak koneksi, kembangkan komunitas.</p>
+          <div class="grid grid-cols-2 md:grid-cols-5 w-full gap-5 mt-10">
+            <div class="p-5 shadow-card-custom rounded-2xl flex flex-col gap-4 items-center bg-white">
+              <img loading="lazy" src="/images/lp-mentor-icon/send.svg" alt="komunitas-icon" />
+              <div class="flex flex-col items-center">
+                <h5 class="font-[500] text-[#187CFF] text-[28px]">125+</h5>
+                <p class="font-[600] text-base">Komunitas</p>
+              </div>
+            </div>
+            <div class="p-5 shadow-card-custom rounded-2xl flex flex-col gap-4 items-center bg-white">
+              <img loading="lazy" src="/images/lp-mentor-icon/users.svg" alt="mentee-icon" />
+              <div class="flex flex-col items-center">
+                <h5 class="font-[500] text-[#187CFF] text-[28px]">6500+</h5>
+                <p class="font-[600] text-base">Mentee</p>
+              </div>
+            </div>
+            <div class="p-5 shadow-card-custom rounded-2xl flex flex-col gap-4 items-center bg-white">
+              <img loading="lazy" src="/images/lp-mentor-icon/profile.svg" alt="mentor-icon" />
+              <div class="flex flex-col items-center">
+                <h5 class="font-[500] text-[#187CFF] text-[28px]">125+</h5>
+                <p class="font-[600] text-base">Mentor</p>
+              </div>
+            </div>
+            <div class="p-5 shadow-card-custom rounded-2xl flex flex-col gap-4 items-center bg-white">
+              <img loading="lazy" src="/images/lp-mentor-icon/discovery.svg" alt="kota-icon" />
+              <div class="flex flex-col items-center">
+                <h5 class="font-[500] text-[#187CFF] text-[28px]">40+</h5>
+                <p class="font-[600] text-base">Kota</p>
+              </div>
+            </div>
+            <div class="p-5 col-span-2 md:col-span-1 shadow-card-custom rounded-2xl flex flex-col gap-4 items-center bg-white">
+              <img loading="lazy" src="/images/lp-mentor-icon/star.svg" alt="kota-icon" />
+              <div class="flex flex-col items-center">
+                <h5 class="font-[500] text-[#187CFF] text-[28px]">500+</h5>
+                <p class="font-[600] text-base">Sukses Mentoring</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative w-full mx-auto">
+            <a
+              href="#"
+              class="hover:bg-primary/80 focus:ring-4 text-center w-full focus:outline-none focus:ring-blue-300 absolute left-1/2 transform -translate-x-1/2 top-10 sm:w-[200px] text-base font-[600] px-8 py-4 rounded-xl bg-[#187CFF] text-white"
+            >
+              Daftar Sekarang
+            </a>
+          </div>
+        </section>
+      </div>
+      <div class="md:h-[576px] md:block hidden bg-[url('./images/lp-mentor/bg-wfh.png')] bg-center bg-no-repeat bg-contain"></div>
+    </div>
+    <!-- End of Info -->
+
+    <!-- Why eduwork-->
+    <div class="pt-10 sm:pt-20 pb-20 sm:pb-24 bg-white bg-[url('images/lp-mentor/bg-line.png')] bg-cover bg-no-repeat">
+      <div class="container mx-auto">
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <h4 class="text-center text-3xl md:text-4xl font-[600] text-[#303030]">Mengapa Mentor Memilih Eduwork?</h4>
+          <p class="mt-4 text-center text-xl font-[400] text-[#676767]">Telah menjangkau 40 kota di Indonesia, kami terhubung dengan partner praktisi dari ragam geografis; Perbanyak koneksi, kembangkan komunitas.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-6 my-16">
+            <div class="shadow-card-custom rounded-xl flex flex-col items-center bg-white">
+              <div class="bg-[url('./images/lp-mentor/why-edu1.png')] h-[300px] bg-cover rounded-t-xl w-full bg-no-repeat"></div>
+
+              <div class="flex flex-col gap-2 items-start text-[#303030] p-5">
+                <h5 class="font-[600] text-[24px]">Platform Multifungsi</h5>
+                <p class="font-[400] text-base text-[#676767]">Beraktivitas dengan instan dan menyenangkan! Fasilitas Eduwork mulai dari booking jadwal otomatis hingga dashboard mentoring.</p>
+              </div>
+            </div>
+            <div class="shadow-card-custom rounded-xl flex flex-col items-center bg-white">
+              <div class="bg-[url('./images/lp-mentor/why-edu2.png')] h-[300px] bg-cover rounded-t-xl w-full bg-no-repeat"></div>
+
+              <div class="flex flex-col gap-2 items-start text-[#303030] p-5">
+                <h5 class="font-[600] text-[24px]">Hustling Anti Ribet</h5>
+                <p class="font-[400] text-base text-[#676767]">Hasilkan double hingga triple income tidak hanya dari komunitas dan webinar, tapi juga dari live mentoring.</p>
+              </div>
+            </div>
+            <div class="shadow-card-custom rounded-xl flex flex-col items-center bg-white">
+              <div class="bg-[url('./images/lp-mentor/why-edu3.png')] h-[300px] bg-cover rounded-t-xl w-full bg-no-repeat"></div>
+
+              <div class="flex flex-col gap-2 items-start text-[#303030] p-5">
+                <h5 class="font-[600] text-[24px]">Langsung Dapat Klien</h5>
+                <p class="font-[400] text-base text-[#676767]">Percayakan tim marketing kami untuk perluas personal brand kamu! Profil para mentor baru terbukti mendapat traffic hingga 30%.</p>
+              </div>
+            </div>
+            <div class="shadow-card-custom rounded-xl flex flex-col items-center bg-white">
+              <div class="bg-[url('./images/lp-mentor/why-edu4.png')] h-[300px] bg-cover rounded-t-xl w-full bg-no-repeat"></div>
+
+              <div class="flex flex-col gap-2 items-start text-[#303030] p-5">
+                <h5 class="font-[600] text-[24px]">Group Mentor Ahli</h5>
+                <p class="font-[400] text-base text-[#676767]">Network = Networth! Mentor-mentor kami berasal dari startup hingga korporasi; ahli yang punya pengalaman 3+ tahun.</p>
+              </div>
+            </div>
+            <div class="shadow-card-custom rounded-xl flex flex-col items-center bg-white">
+              <div class="bg-[url('./images/lp-mentor/why-edu5.png')] h-[300px] bg-cover rounded-t-xl w-full bg-no-repeat"></div>
+
+              <div class="flex flex-col gap-2 items-start text-[#303030] p-5">
+                <h5 class="font-[600] text-[24px]">Jadwal Fleksibel</h5>
+                <p class="font-[400] text-base text-[#676767]">Hanya luang di akhir pekan? Eduwork bantu atur jadwalmu! Maksimalkan kegiatan harian dengan fitur automatic booking.</p>
+              </div>
+            </div>
+            <div class="shadow-card-custom rounded-xl flex flex-col items-center bg-white">
+              <div class="bg-[url('./images/lp-mentor/why-edu6.png')] h-[300px] bg-cover rounded-t-xl w-full bg-no-repeat"></div>
+
+              <div class="flex flex-col gap-2 items-start text-[#303030] p-5">
+                <h5 class="font-[600] text-[24px]">Transparansi Payment</h5>
+                <p class="font-[400] text-base text-[#676767]">Aktivitas pembayaran lebih transparan dengan sistem in-app payment!</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="hover:bg-primary/80 focus:ring-4 text-center focus:outline-none focus:ring-blue-300 w-full sm:w-[250px] text-base font-[600] px-8 py-4 rounded-xl bg-[#187CFF] text-white"> Mulai sebagai mentor </a>
+        </section>
+      </div>
+    </div>
+    <!-- End of Why eduwork-->
+
+    <!-- Waktu luang jadi Cuan -->
+    <div class="absolute w-full h-[100px] z-10">
+      <div class="wave"></div>
+    </div>
+    <div class="sm:mt-16 mt-10 pt-12 pb-12">
+      <div class="container mx-auto">
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <h4 class="relative z-30 text-center text-3xl md:text-4xl font-[600] text-[#303030]">Sekarang Bisa Ubah Waktu Luang menjadi Cuan</h4>
+          <p class="relative z-30 mt-4 text-center text-xl font-[400] text-[#676767]">Berbekal pengalaman tahunan, kamu bisa ciptakan ruang mengajar kamu sendiri.</p>
+          <a href="#" class="hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full sm:w-[250px] my-8 text-center text-base font-[600] px-8 py-4 rounded-xl bg-[#187CFF] text-white"> Daftar Sebagai Mentor </a>
+          <img loading="lazy" class="relative z-30" src="images/lp-mentor/bg-waktu-luang.png" alt="background waktu luang" />
+        </section>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="absolute w-full h-[100px] top-[-20px] z-10">
+        <div class="white-wave"></div>
+      </div>
+    </div>
+    <!-- End of Waktu luang jadi Cuan -->
+
+    <!-- Benefit -->
+    <div class="pb-12 pt-20 sm:pt-32 bg-white">
+      <div class="container mx-auto">
+        <!-- Benefit 1 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <h4 class="relative z-30 text-center text-3xl md:text-4xl font-[600] text-[#303030]">Benefit Setelah Mulai Mentoring</h4>
+          <div class="flex w-full gap-x-10 gap-y-8 md:gap-y-5 flex-wrap md:justify-between items-center justify-center mt-12 md:flex-nowrap">
+            <img loading="lazy" class="mx-auto md:hidden w-full block" src="images/lp-mentor/benefit-1.png" alt="benefit images 1" />
+            <div class="flex flex-col md:items-start gap-4 md:text-left text-center items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Sempurnakan Leadership Skills</h5>
+              <p class="text-xl font-[400]">Perkuat kepercayaan publik dengan mengajar di bidang kompetensi kamu! Menjadi mentor berarti juga berlatih mempertajam skill yang dapat memengaruhi lebih banyak orang.</p>
+              <div class="sm:flex grid gap-x-8 gap-y-4 mt-2 sm:flex-wrap sm:justify-center md:flex-nowrap">
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Top company candidate</div>
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Already tested</div>
+              </div>
+            </div>
+            <img loading="lazy" class="mx-auto hidden max-w-[500px] lg:w-full md:block" src="images/lp-mentor/benefit-1.png" alt="benefit images 1" />
+          </div>
+        </section>
+
+        <!-- Benefit 2 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex md:ustify-between gap-x-10 gap-y-8 md:gap-y-0 items-center justify-center mt-8 sm:mt-12 flex-wrap md:flex-nowrap">
+            <img loading="lazy" class="mx-auto w-full img-dropshadow" src="images/lp-mentor/benefit-2.png" alt="benefit images 2" />
+            <div class="flex flex-col md:items-start gap-4 text-center md:text-left items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Raih Income Tambahan</h5>
+              <p class="text-xl font-[400]">Seiring aktivitas mentoring kamu meningkat, komunitas rintisan kamu juga akan semakin ramai; meningkatkan traffic ke event berbayar kamu.</p>
+              <div class="sm:flex grid gap-x-8 gap-y-4 mt-2 sm:flex-wrap sm:justify-center md:flex-nowrap">
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Top company candidate</div>
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Already tested</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- benefit 3 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex w-full gap-x-10 gap-y-4 md:gap-y-0 flex-wrap md:justify-between items-center justify-center mt-12 md:flex-nowrap">
+            <img loading="lazy" class="mx-auto md:hidden w-full block img-dropshadow" src="images/lp-mentor/benefit-3.png" alt="benefit images 3" />
+            <div class="flex flex-col mt-4 md:items-start md:text-left gap-4 text-center items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Pendekatan Berbasis Data</h5>
+              <p class="text-xl font-[400]">LMS kami membantu kamu mengumpulkan dan menganalisis kebiasaan dan kinerja mentee. Ukur dampak dan efektifitas kamu selama mentoring!</p>
+              <div class="sm:flex grid gap-x-8 gap-y-4 mt-2 sm:flex-wrap sm:justify-center md:flex-nowrap">
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Top company candidate</div>
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Already tested</div>
+              </div>
+            </div>
+            <img loading="lazy" class="mx-auto hidden max-w-[500px] lg:w-full md:block img-dropshadow" src="images/lp-mentor/benefit-3.png" alt="benefit images 3" />
+          </div>
+        </section>
+
+        <!-- Benefit 4 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex md:justify-between gap-x-10 gap-y-4 md:gap-y-0 items-center justify-center mt-12 flex-wrap md:flex-nowrap">
+            <img loading="lazy" class="mx-auto w-full img-dropshadow" src="images/lp-mentor/benefit-4.png" alt="benefit images 4" />
+            <div class="flex flex-col md:items-start md:text-left gap-4 text-center items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Tingkatkan Kredibilitas</h5>
+              <p class="text-xl font-[400]">Eduwork selalu diminta merekomendasikan freelancer dan konsultan. Jika rekam jejak kamu memuaskan, kami akan berikan rekomendasi; tanpa dipungut biaya.</p>
+              <div class="sm:flex grid gap-x-8 gap-y-4 mt-2 sm:flex-wrap sm:justify-center md:flex-nowrap">
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Top company candidate</div>
+                <div class="flex gap-2 items-start"><img loading="lazy" src="images/lp-mentor-icon/checkbox.svg" alt="checklist" />Already tested</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- End of Benefit -->
+
+    <!-- LMS -->
+    <div class="absolute w-full h-[100px] z-10">
+      <div class="wave"></div>
+    </div>
+    <div class="mt-10 sm:mt-16 pt-12 pb-24">
+      <div class="relative z-50 container mx-auto bg-[url('images/lp-mentor/bg-blur.png')] bg-contain bg-center bg-no-repeat">
+        <img class="absolute hidden lg:block bottom-0 left-1/3" src="images/lp-mentor/rectangle-bg.png" alt="rectangle" />
+        <img class="absolute hidden lg:block top-[110px] right-[280px]" src="images/lp-mentor/rectangle-bg.png" alt="rectangle" />
+
+        <section class="lg:relative z-30 flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <h4 class="relative z-30 text-center mb-12 text-3xl md:text-4xl font-[600] text-[#303030]">Bagaimana LMS Kami Mempermudah Monitoring</h4>
+          <div class="flex flex-col lg:flex-row items-center gap-8 flex-nowrap">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 w-full gap-4 sm:gap-6">
+              <div id="hoverlaptop1" class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#187CFF">
+                  <mask id="mask0_2420_11115" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0">
+                    <rect width="32" height="32" fill="black" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11115)">
+                    <path
+                      d="M6.66667 27.9997C5.93333 27.9997 5.30556 27.7386 4.78333 27.2163C4.26111 26.6941 4 26.0663 4 25.333C4 24.5997 4.26111 23.9719 4.78333 23.4497C5.30556 22.9275 5.93333 22.6663 6.66667 22.6663C7.4 22.6663 8.02778 22.9275 8.55 23.4497C9.07222 23.9719 9.33333 24.5997 9.33333 25.333C9.33333 26.0663 9.07222 26.6941 8.55 27.2163C8.02778 27.7386 7.4 27.9997 6.66667 27.9997ZM22.6667 27.9997C22.6667 25.4219 22.1778 23.0052 21.2 20.7497C20.2222 18.4941 18.8833 16.5163 17.1833 14.8163C15.4833 13.1163 13.5056 11.7775 11.25 10.7997C8.99444 9.8219 6.57778 9.33301 4 9.33301V5.33301C7.13333 5.33301 10.0778 5.92745 12.8333 7.11634C15.5889 8.30523 17.9889 9.9219 20.0333 11.9663C22.0778 14.0108 23.6944 16.4108 24.8833 19.1663C26.0722 21.9219 26.6667 24.8663 26.6667 27.9997H22.6667ZM14.6667 27.9997C14.6667 25.0441 13.6278 22.5275 11.55 20.4497C9.47222 18.3719 6.95556 17.333 4 17.333V13.333C6.04444 13.333 7.95556 13.7163 9.73333 14.483C11.5111 15.2497 13.0611 16.2941 14.3833 17.6163C15.7056 18.9386 16.75 20.4886 17.5167 22.2663C18.2833 24.0441 18.6667 25.9552 18.6667 27.9997H14.6667Z"
+                    />
+                  </g>
+                </svg>
+
+                <div>
+                  <h5 class="font-[600] text-base">Assesment Siswa</h5>
+                  <p class="font-[400] text-xs">Kamu bisa memposting kegiatanmu selama di komunitas</p>
+                </div>
+              </div>
+              <div id="hoverlaptop2" class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#187CFF">
+                  <mask id="mask0_2420_11122" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11122)">
+                    <path
+                      d="M16 18.667C15.6222 18.667 15.3056 18.5392 15.05 18.2837C14.7944 18.0281 14.6667 17.7114 14.6667 17.3337C14.6667 16.9559 14.7944 16.6392 15.05 16.3837C15.3056 16.1281 15.6222 16.0003 16 16.0003C16.3778 16.0003 16.6944 16.1281 16.95 16.3837C17.2056 16.6392 17.3333 16.9559 17.3333 17.3337C17.3333 17.7114 17.2056 18.0281 16.95 18.2837C16.6944 18.5392 16.3778 18.667 16 18.667ZM10.6667 18.667C10.2889 18.667 9.97222 18.5392 9.71667 18.2837C9.46111 18.0281 9.33333 17.7114 9.33333 17.3337C9.33333 16.9559 9.46111 16.6392 9.71667 16.3837C9.97222 16.1281 10.2889 16.0003 10.6667 16.0003C11.0444 16.0003 11.3611 16.1281 11.6167 16.3837C11.8722 16.6392 12 16.9559 12 17.3337C12 17.7114 11.8722 18.0281 11.6167 18.2837C11.3611 18.5392 11.0444 18.667 10.6667 18.667ZM21.3333 18.667C20.9556 18.667 20.6389 18.5392 20.3833 18.2837C20.1278 18.0281 20 17.7114 20 17.3337C20 16.9559 20.1278 16.6392 20.3833 16.3837C20.6389 16.1281 20.9556 16.0003 21.3333 16.0003C21.7111 16.0003 22.0278 16.1281 22.2833 16.3837C22.5389 16.6392 22.6667 16.9559 22.6667 17.3337C22.6667 17.7114 22.5389 18.0281 22.2833 18.2837C22.0278 18.5392 21.7111 18.667 21.3333 18.667ZM16 24.0003C15.6222 24.0003 15.3056 23.8725 15.05 23.617C14.7944 23.3614 14.6667 23.0448 14.6667 22.667C14.6667 22.2892 14.7944 21.9725 15.05 21.717C15.3056 21.4614 15.6222 21.3337 16 21.3337C16.3778 21.3337 16.6944 21.4614 16.95 21.717C17.2056 21.9725 17.3333 22.2892 17.3333 22.667C17.3333 23.0448 17.2056 23.3614 16.95 23.617C16.6944 23.8725 16.3778 24.0003 16 24.0003ZM10.6667 24.0003C10.2889 24.0003 9.97222 23.8725 9.71667 23.617C9.46111 23.3614 9.33333 23.0448 9.33333 22.667C9.33333 22.2892 9.46111 21.9725 9.71667 21.717C9.97222 21.4614 10.2889 21.3337 10.6667 21.3337C11.0444 21.3337 11.3611 21.4614 11.6167 21.717C11.8722 21.9725 12 22.2892 12 22.667C12 23.0448 11.8722 23.3614 11.6167 23.617C11.3611 23.8725 11.0444 24.0003 10.6667 24.0003ZM21.3333 24.0003C20.9556 24.0003 20.6389 23.8725 20.3833 23.617C20.1278 23.3614 20 23.0448 20 22.667C20 22.2892 20.1278 21.9725 20.3833 21.717C20.6389 21.4614 20.9556 21.3337 21.3333 21.3337C21.7111 21.3337 22.0278 21.4614 22.2833 21.717C22.5389 21.9725 22.6667 22.2892 22.6667 22.667C22.6667 23.0448 22.5389 23.3614 22.2833 23.617C22.0278 23.8725 21.7111 24.0003 21.3333 24.0003ZM6.66667 29.3337C5.93333 29.3337 5.30556 29.0725 4.78333 28.5503C4.26111 28.0281 4 27.4003 4 26.667V8.00033C4 7.26699 4.26111 6.63921 4.78333 6.11699C5.30556 5.59477 5.93333 5.33366 6.66667 5.33366H8V2.66699H10.6667V5.33366H21.3333V2.66699H24V5.33366H25.3333C26.0667 5.33366 26.6944 5.59477 27.2167 6.11699C27.7389 6.63921 28 7.26699 28 8.00033V26.667C28 27.4003 27.7389 28.0281 27.2167 28.5503C26.6944 29.0725 26.0667 29.3337 25.3333 29.3337H6.66667ZM6.66667 26.667H25.3333V13.3337H6.66667V26.667Z"
+                    />
+                  </g>
+                </svg>
+                <div>
+                  <h5 class="font-[600] text-base">Media Belajar</h5>
+                  <p class="font-[400] text-xs">Acara eksklusif yang ditawarkan oleh upscale dan eduwork</p>
+                </div>
+              </div>
+              <div id="hoverlaptop3" class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" fill="#187CFF" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_2420_11129" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11129)">
+                    <path d="M27.9987 22.6667V13.4667L15.9987 20L1.33203 12L15.9987 4L30.6654 12V22.6667H27.9987ZM15.9987 28L6.66536 22.9333V16.2667L15.9987 21.3333L25.332 16.2667V22.9333L15.9987 28Z" />
+                  </g>
+                </svg>
+
+                <div>
+                  <h5 class="font-[600] text-base">Automatic Report</h5>
+                  <p class="font-[400] text-xs">Pelajari materi dimana saja dan kapan saja</p>
+                </div>
+              </div>
+              <div id="hoverlaptop4" class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" fill="#187CFF" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_2420_11136" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11136)">
+                    <path
+                      d="M8 30.6667C6.88889 30.6667 5.94444 30.2778 5.16667 29.5C4.38889 28.7222 4 27.7778 4 26.6667C4 25.5556 4.38889 24.6111 5.16667 23.8333C5.94444 23.0556 6.88889 22.6667 8 22.6667C8.31111 22.6667 8.6 22.7 8.86667 22.7667C9.13333 22.8333 9.38889 22.9222 9.63333 23.0333L11.5333 20.6667C10.9111 19.9778 10.4778 19.2 10.2333 18.3333C9.98889 17.4667 9.93333 16.6 10.0667 15.7333L7.36667 14.8333C6.98889 15.3889 6.51111 15.8333 5.93333 16.1667C5.35556 16.5 4.71111 16.6667 4 16.6667C2.88889 16.6667 1.94444 16.2778 1.16667 15.5C0.388889 14.7222 0 13.7778 0 12.6667C0 11.5556 0.388889 10.6111 1.16667 9.83333C1.94444 9.05556 2.88889 8.66667 4 8.66667C5.11111 8.66667 6.05556 9.05556 6.83333 9.83333C7.61111 10.6111 8 11.5556 8 12.6667V12.9333L10.7 13.8667C11.1444 13.0667 11.7389 12.3889 12.4833 11.8333C13.2278 11.2778 14.0667 10.9222 15 10.7667V7.86667C14.1333 7.62222 13.4167 7.15 12.85 6.45C12.2833 5.75 12 4.93333 12 4C12 2.88889 12.3889 1.94444 13.1667 1.16667C13.9444 0.388889 14.8889 0 16 0C17.1111 0 18.0556 0.388889 18.8333 1.16667C19.6111 1.94444 20 2.88889 20 4C20 4.93333 19.7111 5.75 19.1333 6.45C18.5556 7.15 17.8444 7.62222 17 7.86667V10.7667C17.9333 10.9222 18.7722 11.2778 19.5167 11.8333C20.2611 12.3889 20.8556 13.0667 21.3 13.8667L24 12.9333V12.6667C24 11.5556 24.3889 10.6111 25.1667 9.83333C25.9444 9.05556 26.8889 8.66667 28 8.66667C29.1111 8.66667 30.0556 9.05556 30.8333 9.83333C31.6111 10.6111 32 11.5556 32 12.6667C32 13.7778 31.6111 14.7222 30.8333 15.5C30.0556 16.2778 29.1111 16.6667 28 16.6667C27.2889 16.6667 26.6389 16.5 26.05 16.1667C25.4611 15.8333 24.9889 15.3889 24.6333 14.8333L21.9333 15.7333C22.0667 16.6 22.0111 17.4611 21.7667 18.3167C21.5222 19.1722 21.0889 19.9556 20.4667 20.6667L22.3667 23C22.6111 22.8889 22.8667 22.8056 23.1333 22.75C23.4 22.6944 23.6889 22.6667 24 22.6667C25.1111 22.6667 26.0556 23.0556 26.8333 23.8333C27.6111 24.6111 28 25.5556 28 26.6667C28 27.7778 27.6111 28.7222 26.8333 29.5C26.0556 30.2778 25.1111 30.6667 24 30.6667C22.8889 30.6667 21.9444 30.2778 21.1667 29.5C20.3889 28.7222 20 27.7778 20 26.6667C20 26.2222 20.0722 25.7944 20.2167 25.3833C20.3611 24.9722 20.5556 24.6 20.8 24.2667L18.9 21.9C17.9889 22.4111 17.0167 22.6667 15.9833 22.6667C14.95 22.6667 13.9778 22.4111 13.0667 21.9L11.2 24.2667C11.4444 24.6 11.6389 24.9722 11.7833 25.3833C11.9278 25.7944 12 26.2222 12 26.6667C12 27.7778 11.6111 28.7222 10.8333 29.5C10.0556 30.2778 9.11111 30.6667 8 30.6667Z"
+                    />
+                  </g>
+                </svg>
+                <div>
+                  <h5 class="font-[600] text-base">Notification</h5>
+                  <p class="font-[400] text-xs">Networking dan diskusi dengan anggota lainnya</p>
+                </div>
+              </div>
+            </div>
+
+            <img id="kontenhover0" class="flex" loading="lazy" src="images/lp-mentor/feature-5.png" alt="macbook" />
+            <img id="kontenhover1" class="hidden" loading="lazy" src="images/lp-mentor/feature-5.png" alt="macbook" />
+            <img id="kontenhover2" class="hidden" loading="lazy" src="images/lp-mentor/feature-1.png" alt="macbook" />
+            <img id="kontenhover3" class="hidden" loading="lazy" src="images/lp-mentor/feature-2.png" alt="macbook" />
+            <img id="kontenhover4" class="hidden" loading="lazy" src="images/lp-mentor/feature-3.png" alt="macbook" />
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="absolute w-full h-[100px] top-[-10px] z-10">
+        <div class="white-wave"></div>
+      </div>
+    </div>
+    <!-- End of LMS -->
+
+    <!-- FEATURE -->
+    <div class="pb-12 pt-16 sm:pt-32 bg-white">
+      <div class="container mx-auto">
+        <!-- Feature 1 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex w-full gap-x-10 gap-y-8 md:gap-y-0 flex-wrap md:justify-between items-center justify-center mt-12 md:flex-nowrap">
+            <img loading="lazy" class="mx-auto z-30 md:hidden w-full block img-dropshadow" src="images/lp-mentor/feature-1.png" alt="feature images 1" />
+            <div class="flex z-30 flex-col md:items-start md:text-left gap-4 text-center items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Mentoring Dashboard</h5>
+              <p class="text-xl font-[400]">Dashboard mentoring merupakan pusat kendali yang membantu optimalisasi setiap aspek pembelajaran mentee.</p>
+            </div>
+            <img loading="lazy" class="mx-auto z-30 hidden max-w-[500px] lg:w-full md:block img-dropshadow" src="images/lp-mentor/feature-1.png" alt="feature images 1" />
+          </div>
+        </section>
+
+        <!-- Feature 2 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex md:justify-between gap-x-10 gap-y-6 md:gap-y-0 items-center justify-center mt-12 flex-wrap md:flex-nowrap">
+            <img loading="lazy" class="mx-auto sm:max-w-[400px] md:max-w-[500px] lg:w-full img-dropshadow" src="images/lp-mentor/feature-2.png" alt="feature images 2" />
+            <div class="flex mt-4 flex-col gap-4 text-center items-center md:items-end md:text-right max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Media Belajar Interaktif</h5>
+              <p class="text-xl font-[400]">Fitur ini memungkinkan kamu untuk menjelaskan konsep kompleks kepada mentee menggunakan media interaktif.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature 3 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex w-full gap-x-10 gap-y-6 md:gap-y-0 flex-wrap md:justify-between items-center justify-center mt-12 md:flex-nowrap">
+            <img loading="lazy" class="mx-auto md:hidden w-full block img-dropshadow" src="images/lp-mentor/feature-3.png" alt="feature image 3" />
+            <div class="flex flex-col mt-4 md:mt-0 md:items-start md:text-left gap-4 text-center items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Notifikasi Aktivitas</h5>
+              <p class="text-xl font-[400]">Notifikasi kegiatan mentee merupakan fitur yang memungkinkan kamu mengelola dan mengontrol kemajuan mentee dengan mudah.</p>
+            </div>
+            <img loading="lazy" class="mx-auto z-30 hidden max-w-[500px] lg:w-full md:block img-dropshadow" src="images/lp-mentor/feature-3.png" alt="feature images 3" />
+          </div>
+        </section>
+
+        <!-- Feature 4 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex md:justify-between gap-x-10 gap-y-0 items-center justify-center mt-12 flex-wrap md:flex-nowrap">
+            <img loading="lazy" class="mx-auto w-full img-dropshadow" src="images/lp-mentor/feature-4.png" alt="benefit images 4" />
+            <div class="flex mt-4 md:mt-0 flex-col gap-4 text-center items-center md:items-end md:text-right max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Laporan Rutin Otomatis</h5>
+              <p class="text-xl font-[400]">Kami menggunakan laporan dengan penggunaan sistem yang terotomatisasi; karena waktu kamu berharga.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- End of Features -->
+
+    <!-- Langkapi profile -->
+    <div class="relative">
+      <div class="absolute w-full h-[100px] top-[-8px] z-10">
+        <div class="wave"></div>
+      </div>
+    </div>
+    <div class="mt-10 sm:mt-16 pt-12 pb-20 md:pb-24">
+      <div class="relative container mx-auto bg-[url('images/lp-mentor/bg-blur.png')] bg-contain bg-center bg-no-repeat">
+        <img class="absolute hidden lg:block bottom-[-40px] left-1/3" src="images/lp-mentor/rectangle-bg.png" alt="rectangle" />
+        <img class="absolute hidden lg:block top-[110px] right-[180px]" src="images/lp-mentor/rectangle-bg.png" alt="rectangle" />
+        <section class="lg:relative z-30 flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <h4 class="relative z-30 text-center mb-12 text-3xl md:text-4xl font-[600] text-[#303030]">Lengkapi Profil di Eduwork Community untuk Tunjukkan Keahlian Kamu</h4>
+          <div class="flex flex-col lg:flex-row items-center gap-8 flex-nowrap">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 w-full gap-4 sm:gap-6">
+              <div class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#187CFF">
+                  <mask id="mask0_2420_11115" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0">
+                    <rect width="32" height="32" fill="black" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11115)">
+                    <path
+                      d="M6.66667 27.9997C5.93333 27.9997 5.30556 27.7386 4.78333 27.2163C4.26111 26.6941 4 26.0663 4 25.333C4 24.5997 4.26111 23.9719 4.78333 23.4497C5.30556 22.9275 5.93333 22.6663 6.66667 22.6663C7.4 22.6663 8.02778 22.9275 8.55 23.4497C9.07222 23.9719 9.33333 24.5997 9.33333 25.333C9.33333 26.0663 9.07222 26.6941 8.55 27.2163C8.02778 27.7386 7.4 27.9997 6.66667 27.9997ZM22.6667 27.9997C22.6667 25.4219 22.1778 23.0052 21.2 20.7497C20.2222 18.4941 18.8833 16.5163 17.1833 14.8163C15.4833 13.1163 13.5056 11.7775 11.25 10.7997C8.99444 9.8219 6.57778 9.33301 4 9.33301V5.33301C7.13333 5.33301 10.0778 5.92745 12.8333 7.11634C15.5889 8.30523 17.9889 9.9219 20.0333 11.9663C22.0778 14.0108 23.6944 16.4108 24.8833 19.1663C26.0722 21.9219 26.6667 24.8663 26.6667 27.9997H22.6667ZM14.6667 27.9997C14.6667 25.0441 13.6278 22.5275 11.55 20.4497C9.47222 18.3719 6.95556 17.333 4 17.333V13.333C6.04444 13.333 7.95556 13.7163 9.73333 14.483C11.5111 15.2497 13.0611 16.2941 14.3833 17.6163C15.7056 18.9386 16.75 20.4886 17.5167 22.2663C18.2833 24.0441 18.6667 25.9552 18.6667 27.9997H14.6667Z"
+                    />
+                  </g>
+                </svg>
+
+                <div>
+                  <h5 class="font-[600] text-base">Feeds</h5>
+                  <p class="font-[400] text-xs">Bagikan “Aha!” moments kamu di beranda; rayakan juga pencapaian koneksi kamu.</p>
+                </div>
+              </div>
+              <div class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#187CFF">
+                  <mask id="mask0_2420_11122" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11122)">
+                    <path
+                      d="M16 18.667C15.6222 18.667 15.3056 18.5392 15.05 18.2837C14.7944 18.0281 14.6667 17.7114 14.6667 17.3337C14.6667 16.9559 14.7944 16.6392 15.05 16.3837C15.3056 16.1281 15.6222 16.0003 16 16.0003C16.3778 16.0003 16.6944 16.1281 16.95 16.3837C17.2056 16.6392 17.3333 16.9559 17.3333 17.3337C17.3333 17.7114 17.2056 18.0281 16.95 18.2837C16.6944 18.5392 16.3778 18.667 16 18.667ZM10.6667 18.667C10.2889 18.667 9.97222 18.5392 9.71667 18.2837C9.46111 18.0281 9.33333 17.7114 9.33333 17.3337C9.33333 16.9559 9.46111 16.6392 9.71667 16.3837C9.97222 16.1281 10.2889 16.0003 10.6667 16.0003C11.0444 16.0003 11.3611 16.1281 11.6167 16.3837C11.8722 16.6392 12 16.9559 12 17.3337C12 17.7114 11.8722 18.0281 11.6167 18.2837C11.3611 18.5392 11.0444 18.667 10.6667 18.667ZM21.3333 18.667C20.9556 18.667 20.6389 18.5392 20.3833 18.2837C20.1278 18.0281 20 17.7114 20 17.3337C20 16.9559 20.1278 16.6392 20.3833 16.3837C20.6389 16.1281 20.9556 16.0003 21.3333 16.0003C21.7111 16.0003 22.0278 16.1281 22.2833 16.3837C22.5389 16.6392 22.6667 16.9559 22.6667 17.3337C22.6667 17.7114 22.5389 18.0281 22.2833 18.2837C22.0278 18.5392 21.7111 18.667 21.3333 18.667ZM16 24.0003C15.6222 24.0003 15.3056 23.8725 15.05 23.617C14.7944 23.3614 14.6667 23.0448 14.6667 22.667C14.6667 22.2892 14.7944 21.9725 15.05 21.717C15.3056 21.4614 15.6222 21.3337 16 21.3337C16.3778 21.3337 16.6944 21.4614 16.95 21.717C17.2056 21.9725 17.3333 22.2892 17.3333 22.667C17.3333 23.0448 17.2056 23.3614 16.95 23.617C16.6944 23.8725 16.3778 24.0003 16 24.0003ZM10.6667 24.0003C10.2889 24.0003 9.97222 23.8725 9.71667 23.617C9.46111 23.3614 9.33333 23.0448 9.33333 22.667C9.33333 22.2892 9.46111 21.9725 9.71667 21.717C9.97222 21.4614 10.2889 21.3337 10.6667 21.3337C11.0444 21.3337 11.3611 21.4614 11.6167 21.717C11.8722 21.9725 12 22.2892 12 22.667C12 23.0448 11.8722 23.3614 11.6167 23.617C11.3611 23.8725 11.0444 24.0003 10.6667 24.0003ZM21.3333 24.0003C20.9556 24.0003 20.6389 23.8725 20.3833 23.617C20.1278 23.3614 20 23.0448 20 22.667C20 22.2892 20.1278 21.9725 20.3833 21.717C20.6389 21.4614 20.9556 21.3337 21.3333 21.3337C21.7111 21.3337 22.0278 21.4614 22.2833 21.717C22.5389 21.9725 22.6667 22.2892 22.6667 22.667C22.6667 23.0448 22.5389 23.3614 22.2833 23.617C22.0278 23.8725 21.7111 24.0003 21.3333 24.0003ZM6.66667 29.3337C5.93333 29.3337 5.30556 29.0725 4.78333 28.5503C4.26111 28.0281 4 27.4003 4 26.667V8.00033C4 7.26699 4.26111 6.63921 4.78333 6.11699C5.30556 5.59477 5.93333 5.33366 6.66667 5.33366H8V2.66699H10.6667V5.33366H21.3333V2.66699H24V5.33366H25.3333C26.0667 5.33366 26.6944 5.59477 27.2167 6.11699C27.7389 6.63921 28 7.26699 28 8.00033V26.667C28 27.4003 27.7389 28.0281 27.2167 28.5503C26.6944 29.0725 26.0667 29.3337 25.3333 29.3337H6.66667ZM6.66667 26.667H25.3333V13.3337H6.66667V26.667Z"
+                    />
+                  </g>
+                </svg>
+                <div>
+                  <h5 class="font-[600] text-base">My Class</h5>
+                  <p class="font-[400] text-xs">Dapatkan update kelas dan event secara real-time dan mudah</p>
+                </div>
+              </div>
+              <div class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" fill="#187CFF" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_2420_11129" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11129)">
+                    <path d="M27.9987 22.6667V13.4667L15.9987 20L1.33203 12L15.9987 4L30.6654 12V22.6667H27.9987ZM15.9987 28L6.66536 22.9333V16.2667L15.9987 21.3333L25.332 16.2667V22.9333L15.9987 28Z" />
+                  </g>
+                </svg>
+
+                <div>
+                  <h5 class="font-[600] text-base">My Events</h5>
+                  <p class="font-[400] text-xs">Pelajari materi mentor dimana saja dan kapan saja</p>
+                </div>
+              </div>
+              <div class="hovered-card flex p-5 gap-4 bg-white rounded-[10px] hover:text-white hover:bg-primary shadow-card-custom">
+                <svg class="hovered-icon" width="32" height="32" viewBox="0 0 32 32" fill="#187CFF" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_2420_11136" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_2420_11136)">
+                    <path
+                      d="M8 30.6667C6.88889 30.6667 5.94444 30.2778 5.16667 29.5C4.38889 28.7222 4 27.7778 4 26.6667C4 25.5556 4.38889 24.6111 5.16667 23.8333C5.94444 23.0556 6.88889 22.6667 8 22.6667C8.31111 22.6667 8.6 22.7 8.86667 22.7667C9.13333 22.8333 9.38889 22.9222 9.63333 23.0333L11.5333 20.6667C10.9111 19.9778 10.4778 19.2 10.2333 18.3333C9.98889 17.4667 9.93333 16.6 10.0667 15.7333L7.36667 14.8333C6.98889 15.3889 6.51111 15.8333 5.93333 16.1667C5.35556 16.5 4.71111 16.6667 4 16.6667C2.88889 16.6667 1.94444 16.2778 1.16667 15.5C0.388889 14.7222 0 13.7778 0 12.6667C0 11.5556 0.388889 10.6111 1.16667 9.83333C1.94444 9.05556 2.88889 8.66667 4 8.66667C5.11111 8.66667 6.05556 9.05556 6.83333 9.83333C7.61111 10.6111 8 11.5556 8 12.6667V12.9333L10.7 13.8667C11.1444 13.0667 11.7389 12.3889 12.4833 11.8333C13.2278 11.2778 14.0667 10.9222 15 10.7667V7.86667C14.1333 7.62222 13.4167 7.15 12.85 6.45C12.2833 5.75 12 4.93333 12 4C12 2.88889 12.3889 1.94444 13.1667 1.16667C13.9444 0.388889 14.8889 0 16 0C17.1111 0 18.0556 0.388889 18.8333 1.16667C19.6111 1.94444 20 2.88889 20 4C20 4.93333 19.7111 5.75 19.1333 6.45C18.5556 7.15 17.8444 7.62222 17 7.86667V10.7667C17.9333 10.9222 18.7722 11.2778 19.5167 11.8333C20.2611 12.3889 20.8556 13.0667 21.3 13.8667L24 12.9333V12.6667C24 11.5556 24.3889 10.6111 25.1667 9.83333C25.9444 9.05556 26.8889 8.66667 28 8.66667C29.1111 8.66667 30.0556 9.05556 30.8333 9.83333C31.6111 10.6111 32 11.5556 32 12.6667C32 13.7778 31.6111 14.7222 30.8333 15.5C30.0556 16.2778 29.1111 16.6667 28 16.6667C27.2889 16.6667 26.6389 16.5 26.05 16.1667C25.4611 15.8333 24.9889 15.3889 24.6333 14.8333L21.9333 15.7333C22.0667 16.6 22.0111 17.4611 21.7667 18.3167C21.5222 19.1722 21.0889 19.9556 20.4667 20.6667L22.3667 23C22.6111 22.8889 22.8667 22.8056 23.1333 22.75C23.4 22.6944 23.6889 22.6667 24 22.6667C25.1111 22.6667 26.0556 23.0556 26.8333 23.8333C27.6111 24.6111 28 25.5556 28 26.6667C28 27.7778 27.6111 28.7222 26.8333 29.5C26.0556 30.2778 25.1111 30.6667 24 30.6667C22.8889 30.6667 21.9444 30.2778 21.1667 29.5C20.3889 28.7222 20 27.7778 20 26.6667C20 26.2222 20.0722 25.7944 20.2167 25.3833C20.3611 24.9722 20.5556 24.6 20.8 24.2667L18.9 21.9C17.9889 22.4111 17.0167 22.6667 15.9833 22.6667C14.95 22.6667 13.9778 22.4111 13.0667 21.9L11.2 24.2667C11.4444 24.6 11.6389 24.9722 11.7833 25.3833C11.9278 25.7944 12 26.2222 12 26.6667C12 27.7778 11.6111 28.7222 10.8333 29.5C10.0556 30.2778 9.11111 30.6667 8 30.6667Z"
+                    />
+                  </g>
+                </svg>
+                <div>
+                  <h5 class="font-[600] text-base">About</h5>
+                  <p class="font-[400] text-xs">Fitur untuk menyimpan semua rekam jejak pembelajaran mentee</p>
+                </div>
+              </div>
+            </div>
+            <img loading="lazy" class="shadow-card-custom rounded-3xl" src="images/lp-mentor/profile.png" alt="macbook" />
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="absolute w-full h-[100px] top-[-8px] z-10">
+        <div class="white-wave"></div>
+      </div>
+    </div>
+    <!-- end of lengkapi profile -->
+
+    <!-- Feature lanjutan -->
+    <div class="pb-12 pt-20 md:pt-32 bg-white">
+      <div class="container mx-auto">
+        <!-- Feature 5 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex w-full gap-x-10 gap-y-6 flex-wrap md:justify-between items-center justify-center mt-12 md:flex-nowrap">
+            <img loading="lazy" class="mx-auto z-30 md:hidden w-full block img-dropshadow" src="images/lp-mentor/feature-5.png" alt="feature images 5" />
+            <div class="flex flex-col md:items-start md:text-left gap-4 text-center items-center max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">Feeds</h5>
+              <p class="text-xl font-[400]">Buat engagement komunitas melejit dengan strategi menjadi Content Creator! Tonjolkan ekspertisi kamu lewat konten textual dan video.</p>
+            </div>
+            <img loading="lazy" class="mx-auto z-30 hidden max-w-[500px] lg:w-full md:block img-dropshadow" src="images/lp-mentor/feature-5.png" alt="feature images 5" />
+          </div>
+        </section>
+
+        <!-- Feature 6 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex md:justify-between gap-x-10 gap-y-6 md:gap-y-0 items-center justify-center mt-12 flex-wrap md:flex-nowrap">
+            <img loading="lazy" class="mx-auto w-full lg:max-w-[500px] img-dropshadow" src="images/lp-mentor/feature-6.png" alt="feature images 6" />
+            <div class="flex flex-col gap-4 text-center items-center md:items-end md:text-right max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">My Class</h5>
+              <p class="text-xl font-[400]">Kamu bisa membagikan konten audio-visual kepada para mentee kamu hanya dengan satu kali klik.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature 7 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex w-full gap-x-10 gap-y-0 flex-wrap md:justify-between items-center justify-center mt-12 md:flex-nowrap">
+            <img loading="lazy" class="mx-auto md:hidden w-full block img-dropshadow" src="images/lp-mentor/feature-7.png" alt="feature image 7" />
+            <div class="mt-6 md:mt-0 flex flex-col gap-4 text-center items-center md:items-start md:text-left max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">My Events</h5>
+              <p class="text-xl font-[400]">Rilis webinar, Live mentoring, dan event-event lainnya yang bisa bantu menaikkan pamor komunitasmu!</p>
+            </div>
+            <img loading="lazy" class="mx-auto hidden lg:max-w-[500px] lg:w-full md:block img-dropshadow" src="images/lp-mentor/feature-7.png" alt="feature images 7" />
+          </div>
+        </section>
+
+        <!-- Feature 8 -->
+        <section class="lg:relative flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex md:justify-between gap-x-10 gap-y-0 items-center justify-center mt-12 flex-wrap md:flex-nowrap">
+            <img loading="lazy" class="mx-auto w-full lg:max-w-[500px] img-dropshadow" src="images/lp-mentor/feature-8.png" alt="benefit images 8" />
+            <div class="mt-6 md:mt-0 flex flex-col gap-4 text-center items-center md:text-right md:items-end max-w-[500px]">
+              <h5 class="font-[700] text-2xl md:text-3xl text-[#303030]">About</h5>
+              <p class="text-xl font-[400]">Ceritakan citra profesional kamu, dan jangan lupa untuk cantumkan portofolio dan akun sosial media lainnya.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- end of feature lanjutan -->
+
+    <!-- Langkah jadi mentor -->
+    <div class="pt-10 sm:pt-14 pb-16 mb:pb-24 bg-white bg-[url(images/lp-mentor/bg-line.png)] bg-cover bg-no-repeat">
+      <div class="container mx-auto">
+        <section class="lg:relative z-30 flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex gap-10 lg:flex-nowrap flex-wrap">
+            <img loading="lazy" class="max-[1024px]:hidden block" src="images/lp-mentor/langkah-mentor.png" alt="Langkah Mentor" />
+            <div class="flex flex-col">
+              <h4 class="text-left relative z-30 mb-3 text-3xl md:text-4xl font-[600] text-[#303030]">Langkah untuk menjadi Mentor Eduwork?</h4>
+              <p class="text-left text-base font-[500] text-[#676767] mb-14">Kami membutuhkan serangkaian proses untuk memastikan kamu dapat membangun komunitas dengan baik</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-12">
+                <div class="shadow-card-custom flex flex-col p-4 pt-[42px] bg-white rounded-[10px]">
+                  <div class="relative">
+                    <div class="absolute bottom-4 font-[700] text-2xl flex justify-center items-center bg-primary rounded-full text-white w-[52px] h-[52px]">1</div>
+                  </div>
+                  <h5 class="font-[600] text-base">Registrasi Akun</h5>
+                  <p class="font-[400] text-xs text-[#676767]">Pendaftaran mudah dengan mengisi form identitas mentor agar kami bisa menentukan apakah kamu lolos persyaratan.</p>
+                </div>
+                <div class="shadow-card-custom flex flex-col p-4 pt-[42px] bg-white rounded-[10px]">
+                  <div class="relative">
+                    <div class="absolute bottom-4 font-[700] text-2xl flex justify-center items-center bg-primary rounded-full text-white w-[52px] h-[52px]">2</div>
+                  </div>
+                  <h5 class="font-[600] text-base">Daftar Komunitas</h5>
+                  <p class="font-[400] text-xs text-[#676767]">Buat komunitas khusus bidang keilmuan atau karir yang sedang kamu tempuh.</p>
+                </div>
+                <div class="shadow-card-custom flex flex-col p-4 pt-[42px] bg-white rounded-[10px]">
+                  <div class="relative">
+                    <div class="absolute bottom-4 font-[700] text-2xl flex justify-center items-center bg-primary rounded-full text-white w-[52px] h-[52px]">3</div>
+                  </div>
+                  <h5 class="font-[600] text-base">Kustomisasi Komunitas</h5>
+                  <p class="font-[400] text-xs text-[#676767]">Sesuaikan komunitas kamu; rancang header, aktivitas, dan dan fitur komunitas lainnya yang dapat mengundang member baru.</p>
+                </div>
+                <div class="shadow-card-custom flex flex-col p-4 pt-[42px] bg-white rounded-[10px]">
+                  <div class="relative">
+                    <div class="absolute bottom-4 font-[700] text-2xl flex justify-center items-center bg-primary rounded-full text-white w-[52px] h-[52px]">4</div>
+                  </div>
+                  <h5 class="font-[600] text-base">Pengerjaan Asesmen</h5>
+                  <p class="font-[400] text-xs text-[#676767]">Calon mentor akan diminta untuk menyelesaikan case-study terkait bidang ekspertisinya.</p>
+                </div>
+                <div class="shadow-card-custom flex flex-col p-4 pt-[42px] bg-white rounded-[10px]">
+                  <div class="relative">
+                    <div class="absolute bottom-4 font-[700] text-2xl flex justify-center items-center bg-primary rounded-full text-white w-[52px] h-[52px]">5</div>
+                  </div>
+                  <h5 class="font-[600] text-base">Interview</h5>
+                  <p class="font-[400] text-xs text-[#676767]">Setelah sampai di tahap ini, kamu akan dihubungi oleh tim kamu lewat telepon video untuk konfirmasi posisi dan proses onboarding.</p>
+                </div>
+                <div class="shadow-card-custom flex flex-col p-4 pt-[42px] bg-white rounded-[10px]">
+                  <div class="relative">
+                    <div class="absolute bottom-4 font-[700] text-2xl flex justify-center items-center bg-primary rounded-full text-white w-[52px] h-[52px]">6</div>
+                  </div>
+                  <h5 class="font-[600] text-base">Buat Deal Pertama</h5>
+                  <p class="font-[400] text-xs text-[#676767]">Jadwalkan pertemuan online untuk bertemu mentee yang ingin konsultasi tentang tantangan bisnis dan cara mengatasinya.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- End of langkah menjadi mentor -->
+
+    <!-- Testimoni -->
+    <div class="pb-0 md:pb-12 md:pt-32 pt-0 bg-white">
+      <section class="lg:relative flex flex-col justify-center items-start w-[90%] md:w-full mx-auto">
+        <h4 class="text-center mb-3 text-3xl mx-auto md:text-4xl font-[600] text-[#303030]">
+          Lihat Perjalanan Sukses <br />
+          <span class="text-primary">Para Mentor Eduwork</span>
+        </h4>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="shadow-lg p-5 rounded-3xl">
+                <img class="img-profile" src="images/lp-mentor/test-mentor2.png" alt="testi-img" />
+                <div>
+                  <h5 class="mt-8 text-[#303030]">Adi Utomo</h5>
+                  <h6 class="mt-2 text-[#3F85EC]">National Banking Company</h6>
+                  <p class="mt-6 text-[#676767]">Kami senang bisa terhubung dengan talent pool dari platform serba ada. Great partnership!</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="shadow-lg p-5 rounded-3xl">
+                <img class="img-profile" src="images/lp-mentor/test-mentor1.png" alt="testi-img" />
+                <div>
+                  <h5 class="mt-8 text-[#303030]">Ari Lasso Matua</h5>
+                  <h6 class="mt-2 text-[#3F85EC]">UI/UX Designer</h6>
+                  <p class="mt-6 text-[#676767]">Saya adalah mentor freelance. Namun, penghasilan saya menjadi 25% lebih tinggi setelah bergabung di Eduwork.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="shadow-lg p-5 rounded-3xl">
+                <img class="img-profile" src="images/lp-mentor/test-mentor2.png" alt="testi-img" />
+                <div>
+                  <h5 class="mt-8 text-[#303030]">Urang Kali</h5>
+                  <h6 class="mt-2 text-[#3F85EC]">Fullstack Developer</h6>
+                  <p class="mt-6 text-[#676767]">The best part is saya gak perlu balas chat satu-persatu untuk tiap jadwal live.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="shadow-lg p-5 rounded-3xl">
+                <img class="img-profile" src="images/lp-mentor/test-mentor1.png" alt="testi-img" />
+                <div>
+                  <h5 class="mt-8 text-[#303030]">Ari Lasso Matua</h5>
+                  <h6 class="mt-2 text-[#3F85EC]">UI/UX Designer</h6>
+                  <p class="mt-6 text-[#676767]">Saya adalah mentor freelance. Namun, penghasilan saya menjadi 25% lebih tinggi setelah bergabung di Eduwork.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="shadow-lg p-5 rounded-3xl">
+                <img class="img-profile" src="images/lp-mentor/test-mentor2.png" alt="testi-img" />
+                <div>
+                  <h5 class="mt-8 text-[#303030]">Urang Kali</h5>
+                  <h6 class="mt-2 text-[#3F85EC]">Fullstack Developer</h6>
+                  <p class="mt-6 text-[#676767]">The best part is saya gak perlu balas chat satu-persatu untuk tiap jadwal live.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="shadow-lg p-5 rounded-3xl">
+                <img class="img-profile" src="images/lp-mentor/test-mentor2.png" alt="testi-img" />
+                <div>
+                  <h5 class="mt-8 text-[#303030]">Adi Utomo</h5>
+                  <h6 class="mt-2 text-[#3F85EC]">National Banking Company</h6>
+                  <p class="mt-6 text-[#676767]">Kami senang bisa terhubung dengan talent pool dari platform serba ada. Great partnership!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- End of testimoni -->
+
+    <!-- FAQ -->
+    <div class="pt-14 pb-16 md:pb-24 bg-white">
+      <div class="container mx-auto">
+        <section class="relative w-[90%] mx-auto h-fit md:w-full lg:w-[1016px] lg:h-[581px] z-10">
+          <h4 class="text-center relative z-30 mb-12 text-3xl md:text-4xl font-[600] text-[#303030]">FAQ</h4>
+
+          <div class="columns-1 md:columns-2 gap-[42px]">
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade rounded-[15px] mb-[27px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Enter.svg" alt="" />
+                <h2 class="mt-[25px]">Panduan Pendaftaran</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Cheque.svg" alt="" />
+                <h2 class="mt-[25px]">Apakah ada Persyaratan?</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Class.svg" alt="" />
+                <h2 class="mt-[25px]">Apa itu ISA</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Multiple Choice.svg" alt="" />
+                <h2 class="mt-[16px] md:mt-[25px] w-[154px] md:w-fit">Proses Seleksinya Pendaftaran</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Book.svg" alt="" />
+                <h2 class="mt-[16px] md:mt-[25px] w-[154px] md:w-fit">Bagaimana Proses Belajarnya</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Static View Level2.svg" alt="" />
+                <h2 class="mt-[25px]">Bagaimana Penyalurannya</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Briefcase.svg" alt="" />
+                <h2 class="mt-[25px]">Bagaimana Setelah Bekerja</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+            <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade rounded-[15px] cursor-pointer">
+              <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+                <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Tags.svg" alt="" />
+                <h2 class="mt-[25px]">Berapa Total Langganan</h2>
+              </div>
+              <div class="content">
+                <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- End of FAQ -->
+
+    <!-- Tahap Selanjutnya -->
+    <div class="pt-0 sm:pt-14 pb-8 sm:pb-24 bg-white bg-[url(images/lp-mentor/bg-blur-2.png)] bg-top bg-contain bg-no-repeat">
+      <div class="container mx-auto">
+        <section class="lg:relative z-30 flex flex-col justify-center items-center w-[90%] md:w-full mx-auto lg:w-[1016px]">
+          <div class="flex flex-col items-center">
+            <h4 class="text-center relative z-30 mb-3 text-3xl md:text-4xl font-[700] text-[#303030]">Jangan Tunggu Tahap Selanjutnya. Coba bersama Eduwork Hari ini.</h4>
+            <p class="max-w-[618px] mx-auto text-center text-base font-[500] text-[#404040] mb-2">
+              Hanya selangkah lagi untuk bawa karir kamu menuju level tertinggi. Konsultasi dengan Customer Service Eduwork untuk pelajari lebih lanjut layanan dan fitur kami.
+            </p>
+            <div class="flex justify-center gap-0 md:gap-4 flex-wrap">
+              <a href="#" class="hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full sm:w-[300px] my-4 text-center text-base font-[600] px-8 py-4 rounded-xl bg-[#187CFF] text-white"> Kerjakan Studi Kasus </a>
+              <a href="#" class="hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 w-full sm:w-[300px] my-4 text-center text-base font-[600] px-8 py-4 rounded-xl bg-[#43936C] text-white"> Konsultasi via WhatsApp </a>
+            </div>
+            <p class="text-left text-base font-[500] text-[#404040] mb-14">Lebih dari <b>100 rb</b> pengguna dan <b>480</b> komunitas telah bergabung</p>
+
+            <img src="images/lp-mentor/bg-coba-eduwork.png" alt="img-coba-eduwork" />
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- End of Tahap selanjutnya -->
+
+    <!-- Footer section -->
+    <section class="relative w-full pb-[20px] md:pb-0 footer-background">
+      <div class="max-w-[1280px] py-[70px] px-4 mx-auto">
+        <img class="mb-6" src="images/lp-mentor-icon/logo-upscale.svg" alt="logo upscale" />
+        <div class="flex flex-wrap lg:flex-nowrap gap-x-14">
+          <div class="flex flex-col gap-4 max-w-[360px]">
+            <p class="font-[400] text-base text-white">Lorem ipsum dolor sit amet consectetur. Nullam consequat arcu consequat eu integer commodo facilisis.</p>
+            <p class="font-[400] text-base text-white">dodi@upscale.id</p>
+            <p class="mb-10 font-[400] text-base text-white">+62 87 884 666 421</p>
+          </div>
+          <div class="flex gap-x-14 gap-y-6 flex-wrap md:flex-nowrap">
+            <div class="flex flex-col gap-2">
+              <a href="#" class="font-[700] text-base text-white">Company</a>
+              <a href="#" class="font-[400] text-white text-base">About us</a>
+              <a href="#" class="font-[400] text-white text-base">Address</a>
+              <a href="#" class="font-[400] text-white text-base">News</a>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a href="#" class="font-[700] text-base text-white">Products</a>
+              <a href="#" class="font-[400] text-white text-base">Outsource</a>
+              <a href="#" class="font-[400] text-white text-base">Head Hunter</a>
+              <a href="#" class="font-[400] text-white text-base">Project Based</a>
+              <a href="#" class="font-[400] text-white text-base">Funding</a>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a href="#" class="font-[700] text-base text-white">Resources</a>
+              <a href="#" class="font-[400] text-white text-base">Home</a>
+              <a href="#" class="font-[400] text-white text-base">Newslatter</a>
+              <a href="#" class="font-[400] text-white text-base">Events</a>
+              <a href="#" class="font-[400] text-white text-base">Help Centre</a>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a href="#" class="font-[700] text-base text-white">Social</a>
+              <a href="#" class="font-[400] text-white text-base">Facebook</a>
+              <a href="#" class="font-[400] text-white text-base">Glints</a>
+              <a href="#" class="font-[400] text-white text-base">Instagram</a>
+              <a href="#" class="font-[400] text-white text-base">LinkedIn</a>
+              <a href="#" class="font-[400] text-white text-base">Twitter</a>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a href="#" class="font-[700] text-base text-white">Legal</a>
+              <a href="#" class="font-[400] text-white text-base">Privacy</a>
+              <a href="#" class="font-[400] text-white text-base">Terms and Conditions</a>
+              <a href="#" class="font-[400] text-white text-base">FAQ's</a>
+              <a href="#" class="font-[400] text-white text-base">Licenses</a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-9 mb-6" />
+        <p class="flex gap-2 items-center font-[400] text-white text-base"><img src="images/lp-mentor-icon/copyright.svg" alt="icon-copyright" />Upscale 2023. All right reserved.</p>
+      </div>
+    </section>
+    <!-- End of Footer section -->
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        direction: "horizontal",
+        spaceBetween: 10,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          480: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1280: {
+            slidesPerView: "auto",
+          },
+        },
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+      });
+    </script>
+
+    <script>
+      const hoverlaptop1 = document.getElementById("hoverlaptop1");
+      const hoverlaptop2 = document.getElementById("hoverlaptop2");
+      const hoverlaptop3 = document.getElementById("hoverlaptop3");
+      const hoverlaptop4 = document.getElementById("hoverlaptop4");
+
+      const kontenhover0 = document.getElementById("kontenhover0");
+      const kontenhover1 = document.getElementById("kontenhover1");
+      const kontenhover2 = document.getElementById("kontenhover2");
+      const kontenhover3 = document.getElementById("kontenhover3");
+      const kontenhover4 = document.getElementById("kontenhover4");
+
+      hoverlaptop1.addEventListener("mouseover", function () {
+        kontenhover1.classList.remove("hidden");
+        kontenhover0.classList.remove("flex");
+        kontenhover0.classList.add("hidden");
+      });
+      hoverlaptop1.addEventListener("mouseout", function () {
+        kontenhover1.classList.add("hidden");
+        kontenhover0.classList.add("flex");
+        kontenhover0.classList.remove("hidden");
+      });
+
+      hoverlaptop2.addEventListener("mouseover", function () {
+        kontenhover2.classList.remove("hidden");
+        kontenhover0.classList.remove("flex");
+        kontenhover0.classList.add("hidden");
+      });
+      hoverlaptop2.addEventListener("mouseout", function () {
+        kontenhover2.classList.add("hidden");
+        kontenhover0.classList.add("flex");
+        kontenhover0.classList.remove("hidden");
+      });
+
+      hoverlaptop3.addEventListener("mouseover", function () {
+        kontenhover3.classList.remove("hidden");
+        kontenhover0.classList.remove("flex");
+        kontenhover0.classList.add("hidden");
+      });
+      hoverlaptop3.addEventListener("mouseout", function () {
+        kontenhover3.classList.add("hidden");
+        kontenhover0.classList.add("flex");
+        kontenhover0.classList.remove("hidden");
+      });
+
+      hoverlaptop4.addEventListener("mouseover", function () {
+        kontenhover4.classList.remove("hidden");
+        kontenhover0.classList.remove("flex");
+        kontenhover0.classList.add("hidden");
+      });
+      hoverlaptop4.addEventListener("mouseout", function () {
+        kontenhover4.classList.add("hidden");
+        kontenhover0.classList.add("flex");
+        kontenhover0.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>
